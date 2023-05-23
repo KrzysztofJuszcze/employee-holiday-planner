@@ -13,6 +13,25 @@ const initialFormValues = {
     mainFunction: '',
 };
 
+const positionNames = [
+'None',
+'Associate',
+'Lead Associate',
+'First Line Manager',
+];
+
+const mainFunctionNames = [
+    'FLM',
+    'Lead',
+    'Layup key',
+    'Layup',
+    'Flow',
+    'Ticketer'
+    ]
+
+
+
+
 export default function AddEmployer() {
 
     const [values, setValues] = useState(initialFormValues)
@@ -68,10 +87,9 @@ export default function AddEmployer() {
                             name="position"
                             value={values.position}
                             onChange={handleInputChange}>
-                                <MenuItem value="">None</MenuItem>
-                                <MenuItem value="">Associate</MenuItem>
-                                <MenuItem value="">Lead Associate</MenuItem>
-                                <MenuItem value="">First Line Manager</MenuItem>
+                              {positionNames.map((positionName) => (
+                                <MenuItem key={positionName} value={positionName}>{positionName}</MenuItem>)
+                              )}
                             </Select>
                     </FormControl>
                 </Grid>
@@ -80,14 +98,12 @@ export default function AddEmployer() {
                         <InputLabel>Main function</InputLabel>
                             <Select
                             label="mainfunction"
-                            name="mainfunction"
+                            name="mainFunction"
                             value={values.mainFunction}
                             onChange={handleInputChange}>
-                                <MenuItem value="">Lead</MenuItem>
-                                <MenuItem value="">Layup key</MenuItem>
-                                <MenuItem value="">Layup</MenuItem>
-                                <MenuItem value="">Flow</MenuItem>
-                                <MenuItem value="">Ticketer</MenuItem>
+                                {mainFunctionNames.map((mainFunctionName) => (
+                                    <MenuItem key={mainFunctionName} value={mainFunctionName}>{mainFunctionName}</MenuItem>
+                                ))}
                             </Select>
                     </FormControl>
                 </Grid>
