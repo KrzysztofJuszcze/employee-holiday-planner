@@ -2,6 +2,7 @@ import { FormControl, FormControlLabel, Radio, RadioGroup, FormLabel, Grid, Text
 import { useState } from "react";
 import StandardButton from "./StandardButton";
 import supabase from "../services/supabase";
+import NavigateMenu from "./NavigateMenu";
 /* import { useNavigate } from "react-router-dom";
 /* import HireDateSelect from "./HireDateSelect"; */
 
@@ -54,11 +55,14 @@ export default function AddEmployer() {
         ]);
 
         if(!error) {
+        setValues(initialFormValues);
         console.log(data);
         }
-    }
+        
+    };
         return (
         <>
+            <NavigateMenu />
             <form onSubmit={handleSubmit} autoComplete="off">
                 <Grid container spacing={2} marginTop={2} sx={{display:"flex", flexDirection:"column", alignItems:"center"}}>
                     <Grid item xl={2}>
