@@ -1,12 +1,12 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom"
 import supabase from "../services/supabase";
+import Grid from "@mui/system/Unstable_Grid/Grid";
+import NavigateMenu from "./NavigateMenu";
 
 export default function Main () {
 let alreadyMounted = false;
 const navigation = useNavigate();
-
-
 
 useEffect(() => {
 if(!alreadyMounted) {
@@ -16,7 +16,7 @@ alreadyMounted = true;
 }, []);
 
 const getSession = async() => {
-    const { data, error } = await supabase.auth.getSession();
+    const { data } = await supabase.auth.getSession();
 
     if(!data.session) {
         navigation('/signIn');
@@ -24,18 +24,12 @@ const getSession = async() => {
     }
 }
 
-const handleLogOut = async (e) => {
-    let { error } = await supabase.auth.signOut();
-
-    if(!error) {
-    navigation('/signin');
-    }
-}
-
 return (
-    <div>
-        <button onClick={handleLogOut}>Logout</button>
-        <h1>Main</h1>
-    </div>
+    <>
+        <NavigateMenu />
+        <Grid container spacing={2} display='flex' alignItems='center' flexDirection='column'>
+                <h1>Welcome to the holiday planning application</h1>
+        </Grid>
+    </>
 )
 }
