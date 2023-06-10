@@ -1,0 +1,81 @@
+ .calendar-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+  }
+  
+  .calendar-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+  }
+  
+  .calendar-column-month {
+    padding: 2px;
+    text-align: center;
+  }
+
+  .calendar-column-weekday {
+    padding: 1px;
+    font-size: 12px;
+  }
+
+  .calendar-column-day {
+    padding: 1px;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .horizontal-calendar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .month-select {
+    margin-bottom: 40px;
+  }
+
+  .th-calendar-column {
+    padding: 0px;
+  }
+
+  .vertical-header {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+    white-space: nowrap;
+  }
+
+  .data-table {
+    font-size: 12px;
+    border: 1px solid #DEDEDF;
+		table-layout: fixed;
+		border-collapse: collapse;
+		border-spacing: 1px;
+		text-align: center;
+    vertical-align: middle;
+  }
+
+  tr {
+  text-align: center;
+  height: 40px;
+  }
+
+  thead {
+    border: 1px solid #DEDEDF;
+		background-color: #E5E4E2;
+		color: #000000;
+  }
+  
+  
+  td {
+    border: 1px solid #DEDEDF;
+		background-color: #FFFFFF;
+		color: #000000;
+    text-align: center;
+    vertical-align: middle;
+  }
+
+
