@@ -1,14 +1,15 @@
-import * as React from 'react';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
 import supabase from '../services/supabase';
-import { useNavigate, useLocation } from 'react-router-dom';
+import {useNavigate, useLocation} from 'react-router-dom';
+import {useState} from 'react';
 import '../main.scss'
 
 export default function NavigateMenu() {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
   const navigation = useNavigate();
   const location = useLocation();
+
 
   const handleLogOut = async () => {
     let { error } = await supabase.auth.signOut();
@@ -19,7 +20,7 @@ export default function NavigateMenu() {
 };
 
   return (
-    
+    <>
       <BottomNavigation sx ={{ transition: 'none', position: 'fixed', top: 0, right: 0, width: '100%', justifyContent: 'flex-end', fontSize:'0.75rem'}}
         showLabels
         value={value}
@@ -43,5 +44,6 @@ export default function NavigateMenu() {
           backgroundColor: location.pathname ==='/logout' ? 'rgba(0, 0, 0, 0.1)' : 'inherit',
           fontSize: location.pathname ==='/logout' ? '0.875rem' : '0.875rem' }}/>
       </BottomNavigation>
+    </>
   );
-}   
+}
